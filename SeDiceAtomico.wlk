@@ -207,3 +207,15 @@ object albuquerque{
 	}
 
 }
+
+object region{
+
+	var ciudadesDeLaRegion = #{springfield.centrales(),albuquerque.centrales()}
+
+	method plantaMasProductoraDeLaRegion(){
+
+		return ciudadesDeLaRegion.max({ ciudades => ciudades.laCentralQueMasProduce().produccionEnergetica(ciudades) })
+
+	}
+
+}
