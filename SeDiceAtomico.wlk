@@ -175,3 +175,35 @@ object springfield{
 	}
 
 }
+
+object albuquerque{
+
+	var centralesDeAlbuquerque = #{plantaHidroelectrica}
+
+	var caudalDelRio = 150
+
+	method laCentralQueMasProduce(){
+
+		return centralesDeAlbuquerque.max({ centrales => centrales.produccionEnergetica(self) })
+
+	}	
+
+	method caudalDelRio(){
+
+		return caudalDelRio
+
+	}	
+
+	method caudalDelRio(nuevoCaudalDelRio){
+
+		caudalDelRio = nuevoCaudalDelRio
+
+	}
+
+	method centrales(){
+
+		return centralesDeAlbuquerque
+
+	}
+
+}
