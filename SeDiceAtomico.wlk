@@ -27,3 +27,33 @@ object burns {
 	}
 	
 }
+
+object exBosque {
+
+	var capacidad = 1
+
+	method produccionEnergetica(ciudad){	
+
+		return 0.5 + capacidad * ciudad.riquezaDelSuelo()
+
+	}
+
+	method contaminacion(){
+
+		return true
+
+	}
+
+	method capacidad(){
+
+		return capacidad
+
+	}
+
+	method capacidad(nuevaCapacidad){
+
+		capacidad = nuevaCapacidad
+
+	}	
+
+}
