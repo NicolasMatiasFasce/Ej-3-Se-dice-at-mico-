@@ -19,13 +19,13 @@ object burns {
 		return millonesDeVarillasDeUranio
 
 	}
-	
+
 	method varillasDeUranio(nuevaCantidadDeVarillas){
 
 		millonesDeVarillasDeUranio = nuevaCantidadDeVarillas
 
 	}
-	
+
 }
 
 object exBosque {
@@ -55,5 +55,35 @@ object exBosque {
 		capacidad = nuevaCapacidad
 
 	}	
+
+}
+
+object elSuspiro {
+
+	var turbinas = [turbinaEolica]
+
+	method produccionEnergetica(ciudad){
+
+		return turbinas.sum({ turbina => turbina.produccion(ciudad) })
+
+	}
+
+	method contaminacion(){
+
+		return false
+
+	}
+
+	method turbinas(){
+
+		return turbinas
+
+	}
+
+	method turbinas(nuevaTurbina){
+
+		turbinas.add(nuevaTurbina)
+
+	}
 
 }
