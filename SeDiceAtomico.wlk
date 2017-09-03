@@ -87,3 +87,23 @@ object elSuspiro {
 	}
 
 }
+
+object plantaHidroelectrica{
+
+	method produccionEnergetica(ciudad){
+
+		return 2 * ciudad.caudalDelRio()
+
+	}
+
+}
+
+object turbinaEolica{
+
+	method produccion(ciudad){
+
+		return 0.2 * ciudad.velocidadDelViento()
+
+	}
+
+}
