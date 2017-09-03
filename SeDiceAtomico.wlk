@@ -107,3 +107,71 @@ object turbinaEolica{
 	}
 
 }
+
+object springfield{
+
+	const velocidadDelViento = 10
+
+	const riquezaDelSuelo = 0.9
+
+	var centralesDeSpringfield = #{burns,exBosque,elSuspiro}
+
+	var necesidadDeLaCiudad = 30
+
+	var suministroElectrico = 10
+
+	method centralesContaminantes(){
+
+		return centralesDeSpringfield.filter({ centrales => centrales.contaminacion() })
+
+	}
+
+	method cubrioNecesidades(){
+
+		return suministroElectrico > necesidadDeLaCiudad 
+
+	}
+
+	method estaEnElHorno(){
+
+		return self.todasLasCentralesContaminan() || self.centralesAportanMasDel50()
+
+	}
+
+	method todasLasCentralesContaminan(){
+
+		return centralesDeSpringfield.size() == self.centralesContaminantes().size()
+
+	}
+
+	method centralesAportanMasDel50(){
+
+		return self.centralesContaminantes().sum({ planta => planta.produccionEnergetica(self) }) >= necesidadDeLaCiudad * 1.5
+
+	}
+
+	method laCentralQueMasProduce(){
+
+		return centralesDeSpringfield.max({ centrales => centrales.produccionEnergetica(self) })
+
+	}	
+
+	method riquezaDelSuelo(){
+
+		return riquezaDelSuelo
+
+	}
+
+	method velocidadDelViento(){
+
+		return velocidadDelViento
+
+	}
+
+	method centrales(){
+
+		return centralesDeSpringfield
+
+	}
+
+}
